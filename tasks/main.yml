@@ -1,0 +1,11 @@
+- name: logentries rsyslog
+  copy:
+    src: logentries.conf
+    dest: /etc/rsyslog.d/
+
+- name: pull images
+  docker_image:
+    name: "{{item}}"
+  with_items:
+    - mergermarket/docker-logentries
+    - mergermarket/mmg-logspout
