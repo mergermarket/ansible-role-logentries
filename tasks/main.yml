@@ -3,6 +3,11 @@
     src: logentries.conf
     dest: /etc/rsyslog.d/
 
+- name: docker service                                                             
+  service:                                                                         
+    name: docker                                                                   
+    state: started
+
 - name: pull images
   docker_image:
     name: "{{item}}"
